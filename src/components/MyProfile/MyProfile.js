@@ -5,7 +5,7 @@ const MyProfile = () => {
         <div>
             <h2 className='text-black text-xl text-center mb-6 mt-6 underline font-semibold'>My Profile</h2>
 
-            <div class="card flex-shrink-0 max-w-xs lg:w-full lg:max-w-2xl mx-auto shadow-2xl bg-base-100">
+            <div class="card flex-shrink-0 max-w-xs lg:w-full lg:max-w-2xl mx-auto shadow-md bg-base-100">
                 <div class="card-body w-full">
                     <div className='lg:grid grid-cols-2'>
                         {/* first name */}
@@ -51,13 +51,26 @@ const MyProfile = () => {
                         {/* address */}
                         <div class="form-control">
                             <label class="label">
-                                <span class="label-text">Address</span>
+                                <span class="label-text">Location</span>
                             </label>
-                            <input type="text" placeholder="Address" class="input input-bordered h-8 w-64" />
+                            <input type="text" placeholder="Location" class="input input-bordered h-8 w-64" />
                         </div>
                     </div>
                     <div class="form-control mt-6">
                         <button class="btn btn-primary btn-sm w-64">Update</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card flex-shrink-0 max-w-xs lg:w-full lg:max-w-2xl mx-auto shadow-md bg-base-100 mt-20 mb-12">
+                <h2 className='text-black text-xl text-center mb-0 mt-6 underline font-semibold'>My Profile Info</h2>
+                <div class="card-body w-full">
+                    <div className='flex flex-col gap-4'>
+                        <p>Name: </p>
+                        <p>Age: </p>
+                        <p>Mobile No:</p>
+                        <p>Email Address: </p>
+                        <p>Location:</p>
                     </div>
                 </div>
             </div>
