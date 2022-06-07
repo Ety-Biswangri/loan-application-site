@@ -20,7 +20,7 @@ const BusinessDetails = () => {
             businessEmail: data.businessEmail
         }
 
-        const url = `http://localhost:5000/business/${user?.email}`;
+        const url = `https://mysterious-retreat-16671.herokuapp.com/business/${user?.email}`;
 
         fetch(url, {
             method: "PUT",
@@ -39,7 +39,7 @@ const BusinessDetails = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/business/${user?.email}`, {
+        fetch(`https://mysterious-retreat-16671.herokuapp.com/business/${user?.email}`, {
             method: 'GET',
         })
             .then(res => res.json())

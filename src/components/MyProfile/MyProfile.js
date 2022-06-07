@@ -22,7 +22,7 @@ const MyProfile = () => {
             location: data.location
         }
 
-        const url = `http://localhost:5000/profile/${user?.email}`;
+        const url = `https://mysterious-retreat-16671.herokuapp.com/profile/${user?.email}`;
 
         fetch(url, {
             method: "PUT",
@@ -42,7 +42,7 @@ const MyProfile = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/profile/${user?.email}`, {
+        fetch(`https://mysterious-retreat-16671.herokuapp.com/profile/${user?.email}`, {
             method: 'GET',
         })
             .then(res => res.json())

@@ -20,7 +20,7 @@ const LoanApplication = () => {
             monthlyPayment: data.monthlyPayment
         }
 
-        const url = `http://localhost:5000/applications/${user?.email}`;
+        const url = `https://mysterious-retreat-16671.herokuapp.com/applications/${user?.email}`;
 
         fetch(url, {
             method: "PUT",
@@ -39,7 +39,7 @@ const LoanApplication = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/applications/${user?.email}`, {
+        fetch(`https://mysterious-retreat-16671.herokuapp.com/applications/${user?.email}`, {
             method: 'GET',
         })
             .then(res => res.json())
