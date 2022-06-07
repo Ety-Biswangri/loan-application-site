@@ -8,14 +8,13 @@ const Footer = () => {
                     <span class="footer-title">Services</span>
                     <a class="link link-hover">Business Loan</a>
                     <a class="link link-hover">Marketing</a>
-                    <a class="link link-hover">Advertisement</a>
+                    <a class="link link-hover">Consultancy</a>
                 </div>
                 <div className='mb-5 lg:mb-0'>
                     <span class="footer-title">Company</span>
                     <a class="link link-hover">About us</a>
                     <a class="link link-hover">Contact</a>
                     <a class="link link-hover">Jobs</a>
-                    <a class="link link-hover">Press kit</a>
                 </div>
                 <div className='mb-5 lg:mb-0'>
                     <span class="footer-title">Legal</span>

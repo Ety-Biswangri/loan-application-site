@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const MyProfile = () => {
@@ -35,7 +36,7 @@ const MyProfile = () => {
             .then(result => {
                 console.log(result);
                 reset();
-                // toast('Profile Updated');
+                toast('Profile Updated');
                 setIsReload(!isReload);
             })
 
