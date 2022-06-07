@@ -48,7 +48,7 @@ const LoanApplication = () => {
 
     return (
         <div>
-            <h2 className='text-black text-xl text-center mb-6 mt-6 underline font-semibold'>Loan Application</h2>
+            <h2 className='text-black text-xl text-center mb-6 mt-6 underline font-semibold'>Loan Application Form</h2>
 
             <div class="card flex-shrink-0 max-w-xs lg:w-full lg:max-w-2xl mx-auto shadow-md bg-base-100">
                 <div class="card-body w-full">
@@ -70,9 +70,15 @@ const LoanApplication = () => {
                                     value: true,
                                     message: 'Loan Amount is required'
                                 },
+                                min: {
+                                    value: 5000,
+                                    message: `Loan amount need to be more than or equal to 5000`
+                                },
                             })} />
                             <label className="label">
                                 {errors?.amount?.type === 'required' && <span className="label-text-alt text-red-500">{errors.amount?.message}</span>}
+
+                                {errors?.amount?.type === 'min' && <span className="label-text-alt text-red-500">{errors.amount?.message}</span>}
                             </label>
                         </div>
 
@@ -80,30 +86,26 @@ const LoanApplication = () => {
                             <label class="label">
                                 <span class="label-text">Interest Rate (%)</span>
                             </label>
-                            <input type="number" placeholder="Interest Rate" class="input input-bordered h-8 w-64" defaultValue="5" {...register("interest", {
-                                required: {
-                                    value: true,
-                                    message: 'Interest Rate is required'
-                                },
-                            })} />
-                            <label className="label">
-                                {errors?.interest?.type === 'required' && <span className="label-text-alt text-red-500">{errors.interest?.message}</span>}
-                            </label>
+
+                            <select {...register("interest")} class="input input-bordered h-8 w-64">
+                                <option value="" disabled>Select Interest Rate</option>
+                                <option value="3">3</option>
+                                <option value="5">5</option>
+                                <option value="7">7</option>
+                            </select>
                         </div>
 
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Loan Tenure (in years)</span>
                             </label>
-                            <input type="number" placeholder="Loan Tenure (in years)" class="input input-bordered h-8 w-64" defaultValue="10" {...register("tenure", {
-                                required: {
-                                    value: true,
-                                    message: 'Loan Tenure is required'
-                                },
-                            })} />
-                            <label className="label">
-                                {errors?.tenure?.type === 'required' && <span className="label-text-alt text-red-500">{errors.tenure?.message}</span>}
-                            </label>
+
+                            <select {...register("tenure")} class="input input-bordered h-8 w-64">
+                                <option value="" disabled>Select Tenure</option>
+                                <option value="5">5</option>
+                                <option value="7">7</option>
+                                <option value="10">10</option>
+                            </select>
                         </div>
 
                         <div class="form-control">
@@ -115,21 +117,27 @@ const LoanApplication = () => {
                                     value: true,
                                     message: 'Minimum Monthly Payment is required'
                                 },
+                                min: {
+                                    value: 1000,
+                                    message: `Min Monthly payment need to be more than or equal to 1000`
+                                },
                             })} />
                             <label className="label">
                                 {errors?.monthlyPayment?.type === 'required' && <span className="label-text-alt text-red-500">{errors.monthlyPayment?.message}</span>}
+
+                                {errors?.monthlyPayment?.type === 'min' && <span className="label-text-alt text-red-500">{errors.monthlyPayment?.message}</span>}
                             </label>
                         </div>
 
                         <div class="form-control md:mt-8">
-                            <button class="btn btn-primary btn-sm w-64 text-white">Submit</button>
+                            <button class="btn btn-primary btn-sm lg:w-40 w-64 text-white">Submit</button>
                         </div>
                     </form>
                 </div>
             </div>
 
             <div class="card flex-shrink-0 max-w-xs lg:w-full lg:max-w-2xl mx-auto shadow-md bg-base-100 mt-20 mb-12">
-                <h2 className='text-black text-xl text-center mb-0 mt-6 underline font-semibold'>Application Details</h2>
+                <h2 className='text-black text-xl text-center mb-0 mt-6 underline font-semibold'>My Application Details</h2>
                 <div class="card-body w-full">
                     <div className='flex flex-col gap-4'>
                         <p> <span className='font-bold'>Loan Amount:</span> {myApplication.amount}</p>

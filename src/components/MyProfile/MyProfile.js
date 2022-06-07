@@ -96,11 +96,17 @@ const MyProfile = () => {
                             <input type="number" placeholder="Age" class="input input-bordered h-8 w-64" defaultValue="18"  {...register("age", {
                                 required: {
                                     value: true,
-                                    message: 'Age is required'
+                                    message: 'Age is required and need to be 16 or more'
+                                },
+                                min: {
+                                    value: 16,
+                                    message: `Age need to be more than or equal to 16`
                                 },
                             })} />
                             <label className="label">
                                 {errors?.age?.type === 'required' && <span className="label-text-alt text-red-500">{errors.age?.message}</span>}
+
+                                {errors?.age?.type === 'min' && <span className="label-text-alt text-red-500">{errors.age?.message}</span>}
                             </label>
                         </div>
 
@@ -114,9 +120,14 @@ const MyProfile = () => {
                                     value: true,
                                     message: 'Mobile is required'
                                 },
+                                pattern: {
+                                    value: /^(\+\d{1,3}[- ]?)?\d{10}$/,
+                                    message: 'Provide a valid Mobile No (e.g. +919367788755)'
+                                }
                             })} />
                             <label className="label">
                                 {errors?.mobile?.type === 'required' && <span className="label-text-alt text-red-500">{errors.mobile?.message}</span>}
+                                {errors?.mobile?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.mobile?.message}</span>}
                             </label>
                         </div>
 
@@ -145,7 +156,7 @@ const MyProfile = () => {
                         </div>
 
                         <div class="form-control mt-6">
-                            <button class="btn btn-primary btn-sm w-64 text-white">Update</button>
+                            <button class="btn btn-primary btn-sm lg:w-40 w-64 text-white">Update</button>
                         </div>
                     </form>
                 </div>

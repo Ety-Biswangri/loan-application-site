@@ -85,9 +85,15 @@ const BusinessDetails = () => {
                                     value: true,
                                     message: 'GST No is required'
                                 },
+                                pattern: {
+                                    value: /\d{2}[A-Z]{5}\d{4}[A-Z]{1}[A-Z\d]{1}[Z]{1}[A-Z\d]{1}/,
+                                    message: 'Provide a valid GST No (e.g. 22AAAAA0000A1Z5)'
+                                }
                             })} />
                             <label className="label">
                                 {errors?.gst?.type === 'required' && <span className="label-text-alt text-red-500">{errors.gst?.message}</span>}
+
+                                {errors.gst?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.gst.message}</span>}
                             </label>
                         </div>
 
@@ -121,7 +127,7 @@ const BusinessDetails = () => {
                             </label>
                         </div>
                         <div class="form-control md:mt-8">
-                            <button class="btn btn-primary btn-sm w-64 text-white ">Update</button>
+                            <button class="btn btn-primary btn-sm lg:w-40 w-64 text-white ">Update</button>
                         </div>
                     </form>
                 </div>
