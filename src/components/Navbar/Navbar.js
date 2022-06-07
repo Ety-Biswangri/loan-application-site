@@ -1,17 +1,38 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Navbar = () => {
 
+    const [user, loading, error] = useAuthState(auth);
+
+    const logOut = () => {
+        signOut(auth);
+    }
+
     const headersItem = <>
-        <li><Link to="/myProfile">My Profile</Link></li>
-        <li><Link to="/businessDetails">Business Details</Link></li>
-        <li><Link to="/loanApplication">Loan Application</Link></li>
+        {
+            user && <>
+                <li><Link to="/myProfile">My Profile</Link></li>
+                <li><Link to="/businessDetails">Business Details</Link></li>
+                <li><Link to="/loanApplication">Loan Application</Link></li>
+            </>
+        }
+
+        <li>
+            {
+                user ?
+                    <button class="btn" style={{ backgroundColor: "lightblue", color: 'black' }} onClick={logOut}>Log Out</button>
+                    : <Link to="/login">Login</Link>
+            }
+        </li>
     </>
 
     return (
         <div>
-            <div class="navbar bg-base-100 2xl:max-w-full mx-auto sticky top-0 z-50">
+            <div class="navbar bg-base-100 2xl:max-w-full mx-auto sticky top-0 z-50 h-20">
                 <div class="navbar-start">
                     <div class="dropdown">
                         <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -23,7 +44,7 @@ const Navbar = () => {
                     </div>
                     <Link to="/" class="btn btn-ghost normal-case text-xl">QUICK LOAN</Link>
                 </div>
-                <div class="navbar-center hidden lg:flex">
+                <div class="navbar-end hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">
                         {headersItem}
                     </ul>
