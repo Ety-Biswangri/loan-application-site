@@ -16,15 +16,13 @@ const BusinessDetails = () => {
                             <input type="text" placeholder="Business Name" class="input input-bordered h-8 w-64" />
                         </div>
 
-                        {/* age */}
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">GST No</span>
                             </label>
-                            <input type="number" placeholder="GST No" class="input input-bordered h-8 w-64" />
+                            <input type="text" placeholder="GST No" class="input input-bordered h-8 w-64" />
                         </div>
 
-                        {/* address */}
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Address</span>
@@ -32,7 +30,6 @@ const BusinessDetails = () => {
                             <input type="text" placeholder="Address" class="input input-bordered h-8 w-64" />
                         </div>
 
-                        {/* email */}
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Business Email</span>
