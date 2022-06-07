@@ -155,11 +155,11 @@ const MyProfile = () => {
                 <h2 className='text-black text-xl text-center mb-0 mt-6 underline font-semibold'>My Profile Info</h2>
                 <div class="card-body w-full">
                     <div className='flex flex-col gap-4'>
-                        <p>Name: {myProfile.name}</p>
-                        <p>Age: {myProfile.age}</p>
-                        <p>Mobile No: {myProfile.mobile}</p>
-                        <p>Email Address: {myProfile.email}</p>
-                        <p>Location: {myProfile.location}</p>
+                        <p> <span className='font-bold'>Name:</span> {myProfile.name}</p>
+                        <p> <span className='font-bold'>Age:</span> {myProfile.age}</p>
+                        <p> <span className='font-bold'>Mobile No:</span> {myProfile.mobile}</p>
+                        <p> <span className='font-bold'>Email Address:</span> {myProfile.email}</p>
+                        <p> <span className='font-bold'>Location:</span> {myProfile.location}</p>
                     </div>
                 </div>
             </div>

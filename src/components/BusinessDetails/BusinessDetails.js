@@ -131,10 +131,10 @@ const BusinessDetails = () => {
                 <h2 className='text-black text-xl text-center mb-0 mt-6 underline font-semibold'>My Business Info</h2>
                 <div class="card-body w-full">
                     <div className='flex flex-col gap-4'>
-                        <p>Business Name: {myBusiness.businessName}</p>
-                        <p>GST No: {myBusiness.gst}</p>
-                        <p>Address: {myBusiness.address}</p>
-                        <p>Business Email: {myBusiness.businessEmail}</p>
+                        <p> <span className='font-bold'>Business Name:</span> {myBusiness.businessName}</p>
+                        <p> <span className='font-bold'>GST No:</span> {myBusiness.gst}</p>
+                        <p><span className='font-bold'>Address: </span> {myBusiness.address}</p>
+                        <p> <span className='font-bold'>Business Email:</span> {myBusiness.businessEmail}</p>
                     </div>
                 </div>
             </div>

@@ -132,10 +132,10 @@ const LoanApplication = () => {
                 <h2 className='text-black text-xl text-center mb-0 mt-6 underline font-semibold'>Application Details</h2>
                 <div class="card-body w-full">
                     <div className='flex flex-col gap-4'>
-                        <p>Loan Amount: {myApplication.amount}</p>
-                        <p>Interest Rate: {myApplication.interest}</p>
-                        <p>Loan Tenure (in years): {myApplication.tenure}</p>
-                        <p>Minimum Monthly Payment: {myApplication.monthlyPayment}</p>
+                        <p> <span className='font-bold'>Loan Amount:</span> {myApplication.amount}</p>
+                        <p> <span className='font-bold'>Interest Rate:</span> {myApplication.interest}</p>
+                        <p> <span className='font-bold'>Loan Tenure (in years):</span> {myApplication.tenure}</p>
+                        <p> <span className='font-bold'>Minimum Monthly Payment:</span> {myApplication.monthlyPayment}</p>
                     </div>
                 </div>
             </div>

@@ -42,7 +42,7 @@ const Register = () => {
 
     return (
         <div>
-            <h2 className='text-center my-6 text-2xl'>Please Register</h2>
+            <h2 className='text-center my-6 text-2xl font-semibold'>Please Register</h2>
 
             <div className="flex justify-center w-full my-10 mb-14">
                 <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -124,7 +124,7 @@ const Register = () => {
                                 </label>
                             </div>
 
-                            <input className='btn w-full max-w-xs text-white' type="submit" value="Register" />
+                            <input className='btn w-full max-w-xs text-white btn-primary' type="submit" value="Register" />
                         </form>
 
                         {errorMessage}

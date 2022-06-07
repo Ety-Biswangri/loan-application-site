@@ -46,7 +46,7 @@ const LoginPage = () => {
 
     return (
         <div>
-            <h2 className='text-center my-6 text-2xl'>Please Login</h2>
+            <h2 className='text-center my-6 text-2xl font-semibold'>Please Login</h2>
 
             <div className="flex justify-center w-full my-10 mb-14">
                 <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -105,7 +105,7 @@ const LoginPage = () => {
                                 </label>
                             </div>
 
-                            <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
+                            <input className='btn w-full max-w-xs text-white btn-primary' type="submit" value="Login" />
                         </form>
 
                         {errorMessage}
