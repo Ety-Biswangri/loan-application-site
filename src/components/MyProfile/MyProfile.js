@@ -145,7 +145,7 @@ const MyProfile = () => {
                         </div>
 
                         <div class="form-control mt-6">
-                            <button class="btn btn-primary btn-sm w-64">Update</button>
+                            <button class="btn btn-primary btn-sm w-64 text-white">Update</button>
                         </div>
                     </form>
                 </div>

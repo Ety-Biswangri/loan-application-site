@@ -1,17 +1,50 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
 
 const LoanApplication = () => {
     const [isReload, setIsReload] = useState(false);
-    const [myLoan, setMyLoan] = useState({});
+    const [myApplication, setMyApplication] = useState({});
     const [user, loading] = useAuthState(auth);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
+        // console.log(data);
+
+        const applications = {
+            email: user?.email,
+            amount: data.amount,
+            interest: data.interest,
+            tenure: data.tenure,
+            monthlyPayment: data.monthlyPayment
+        }
+
+        const url = `http://localhost:5000/applications/${user?.email}`;
+
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(applications)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+                reset();
+                // toast('Profile Updated');
+                setIsReload(!isReload);
+            })
     }
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/applications/${user?.email}`, {
+            method: 'GET',
+        })
+            .then(res => res.json())
+            .then(result => setMyApplication(result));
+    }, [user?.email, isReload]);
 
     return (
         <div>
@@ -88,8 +121,8 @@ const LoanApplication = () => {
                             </label>
                         </div>
 
-                        <div class="form-control mt-6">
-                            <button class="btn btn-primary btn-sm w-64">Submit</button>
+                        <div class="form-control md:mt-8">
+                            <button class="btn btn-primary btn-sm w-64 text-white">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -99,10 +132,10 @@ const LoanApplication = () => {
                 <h2 className='text-black text-xl text-center mb-0 mt-6 underline font-semibold'>Application Details</h2>
                 <div class="card-body w-full">
                     <div className='flex flex-col gap-4'>
-                        <p>Loan Amount: </p>
-                        <p>Interest Rate:</p>
-                        <p>Loan Tenure (in years): </p>
-                        <p>Minimum Monthly Payment:</p>
+                        <p>Loan Amount: {myApplication.amount}</p>
+                        <p>Interest Rate: {myApplication.interest}</p>
+                        <p>Loan Tenure (in years): {myApplication.tenure}</p>
+                        <p>Minimum Monthly Payment: {myApplication.monthlyPayment}</p>
                     </div>
                 </div>
             </div>

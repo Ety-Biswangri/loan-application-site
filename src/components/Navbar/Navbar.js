@@ -15,13 +15,13 @@ const Navbar = () => {
     const headersItem = <>
         {
             user && <>
-                <li><Link to="/myProfile">My Profile</Link></li>
-                <li><Link to="/businessDetails">Business Details</Link></li>
-                <li><Link to="/loanApplication">Loan Application</Link></li>
+                <li className='lg:mr-4'><Link to="/myProfile">My Profile</Link></li>
+                <li className='lg:mr-4'><Link to="/businessDetails">Business Details</Link></li>
+                <li className='lg:mr-4'><Link to="/loanApplication">Loan Application</Link></li>
             </>
         }
 
-        <li>
+        <li className='lg:mr-4'>
             {
                 user ?
                     <button class="btn" style={{ backgroundColor: "lightblue", color: 'black' }} onClick={logOut}>Log Out</button>
@@ -32,7 +32,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div class="navbar bg-base-100 2xl:max-w-full mx-auto sticky top-0 z-50 h-20">
+            <div class="navbar bg-violet-800 2xl:max-w-full mx-auto sticky top-0 z-50 mg:mb-10">
                 <div class="navbar-start">
                     <div class="dropdown">
                         <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -42,9 +42,9 @@ const Navbar = () => {
                             {headersItem}
                         </ul>
                     </div>
-                    <Link to="/" class="btn btn-ghost normal-case text-xl">QUICK LOAN</Link>
+                    <Link to="/" class="btn btn-ghost normal-case text-xl lg:ml-16 text-white">QUICK LOAN</Link>
                 </div>
-                <div class="navbar-end hidden lg:flex">
+                <div class="navbar-center 2xl:navbar-end hidden lg:flex text-white">
                     <ul class="menu menu-horizontal p-0">
                         {headersItem}
                     </ul>

@@ -120,8 +120,8 @@ const BusinessDetails = () => {
                                 {errors?.businessEmail?.type === 'required' && <span className="label-text-alt text-red-500">{errors.businessEmail?.message}</span>}
                             </label>
                         </div>
-                        <div class="form-control mt-6">
-                            <button class="btn btn-primary btn-sm w-64">Update</button>
+                        <div class="form-control md:mt-8">
+                            <button class="btn btn-primary btn-sm w-64 text-white ">Update</button>
                         </div>
                     </form>
                 </div>

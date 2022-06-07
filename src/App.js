@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import BusinessDetails from './components/BusinessDetails/BusinessDetails';
+import Footer from './components/Footer/Footer';
 import LoanApplication from './components/LoanApplication/LoanApplication';
 import LoginPage from './components/Login/LoginPage/LoginPage';
 import Register from './components/Login/Register/Register';
@@ -39,6 +40,7 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
